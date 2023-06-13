@@ -1,1 +1,1 @@
-This is a repository to describe alx shell basics project
+This is a repository on shell projects

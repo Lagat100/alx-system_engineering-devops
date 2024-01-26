@@ -1,16 +1,12 @@
-#!/bin/usr/env bash
-# Scripts displays "hi" at the 9th iteration of "Best School" 10 times
-
-a="1"
-while [ $a -le 10 ];
+#!/usr/bin/env bash
+# This script is displaying "Best School" and "Hi"
+x="0"
+while [ $x -lt 10 ]
 do
-	if ] $a -eq 9 ];
-	then
-		echo "Best School"
-		echo "Hi"
-	else
-		echo "Best School"
-	fi
-	
-	((a++))
+    echo "Best School"
+    if ((x == 8))
+    then
+        echo "Hi"
+    fi
+    x=$((x+1))
 done

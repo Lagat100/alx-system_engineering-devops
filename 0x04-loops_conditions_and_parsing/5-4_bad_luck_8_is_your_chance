@@ -1,16 +1,16 @@
-#!/bin/usr/env bash
-# Script display 'bad luck' on 4th iteration and 'good luck' ont the 8th
-
-a="1"
-while [ $a -le 10 ]
+#!/usr/bin/env bash
+#loop 10 iterations and three specific conditionals
+i="0"
+while [ $i -lt 10 ]
 do
-	if [ $a -eq 4 ]
+	if ((i == 3))
 	then
 		echo "bad luck"
-	elif [ $a -eq 8 ]
-	then
+	elif ((i == 7))
+	then 
 		echo "good luck"
 	else
 		echo "Best School"
-	((a++))
+	fi
+	((i++))
 done

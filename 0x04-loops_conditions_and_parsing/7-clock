@@ -1,0 +1,18 @@
+#!/bin/usr/env bash
+# Script displays the time for 12 ours and 59 minutes
+
+hour="0"
+minute="1"
+
+while [ $hour -le 12 ]
+do
+    echo "$(printf %02d $hour):$(printf %02d $minute)"
+    ((minute++))
+    if [ $minute -gt 59 ]
+then
+    minute="1"
+
+    ((hour++))
+
+    fi
+done

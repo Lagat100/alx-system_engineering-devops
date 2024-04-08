@@ -1,18 +1,31 @@
-#!/usr/bin/env bash
-# Commands to install Nginx on Web-Sever-01
+#!/bin/bash
 
-# Updating Packages before making Installations
-sudo apt-get update
-sudo apt-get -y install nginx
+# Install Nginx
+sudo apt update
+sudo apt install -y nginx
 
-# Configuring the Uncomplicated Firewall (UFW) to allow incoming traffic for the Nginx HTTP service
-sudo ufw allow 'Nginx HTTP'
+# Get the hostname of the server
+hostname=$(hostname)
 
-# Creating an index.html page
-echo "Hello World!" | sudo tee /var/www/html/index.html
+# Configure Nginx to include custom HTTP response header
+sudo bash -c 'cat <<EOF > /etc/nginx/conf.d/custom_http_response_header.conf
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
-# Testing Nginx configurations for Syntax errors
-sudo nginx -t
+    server_name _;
 
-# Restarting Nginx
-sudo service nginx start
+    location / {
+        add_header X-Served-By $hostname;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+    }
+
+    # Remove default Nginx server block
+    include /etc/nginx/sites-enabled/*;
+}
+EOF'
+
+# Restart Nginx to apply changes
+sudo systemctl restart nginx
+

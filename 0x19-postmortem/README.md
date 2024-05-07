@@ -18,6 +18,8 @@ Root Cause:
 
 - The outage was caused by a misconfiguration in the load balancer, which led to an overload on one of the application servers.
 
+https://media.licdn.com/dms/image/D4E12AQE0ykv4O-MxwA/article-cover_image-shrink_600_2000/0/1700750162073?e=2147483647&v=beta&t=31qYB8O0ifgtSknvIDDOeoKMe2xWv9g9L0yzPBnusb0
+
 Timeline:
 - 10:15 PM (GMT): Issue detected as monitoring alerts indicated a spike in error rates and latency.
 - 10:20 PM (GMT): Engineering team began investigation, suspecting a potential database issue due to recent updates.

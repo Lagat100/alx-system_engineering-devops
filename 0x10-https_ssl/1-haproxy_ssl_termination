@@ -41,7 +41,7 @@ frontend kiproplagat-frontend
         default_backend kiproplagat-backend
 
 frontend kiproplagat-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/kiproplagat.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.kiproplagat.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend kiproplagat-backend
 
